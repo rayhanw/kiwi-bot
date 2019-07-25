@@ -1,0 +1,8 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:rayhanw/discord-bot.git",
+  "author": "Rayhan Wirjowerdojo <rayhan.wirjowerdojo@gmail.com>",
+  "license": "MIT"
+}
