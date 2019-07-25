@@ -51,6 +51,7 @@ commandFiles.forEach((commandFile) => {
 
 client.once('ready', () => {
   console.log('Beep Boop. I am ready!');
+  client.user.setPresence({ game: { name: '!commands', type: 'LISTENING' } });
 });
 
 client.on('message', (message) => {
