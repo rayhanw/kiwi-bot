@@ -6,9 +6,12 @@
   "author": "Rayhan Wirjowerdojo <rayhan.wirjowerdojo@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^6.1.0"
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2"
   },
   "dependencies": {
-    "discord.js": "^11.5.1"
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.0.0"
   }
 }
