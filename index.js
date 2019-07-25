@@ -34,6 +34,14 @@ const showEmbed = (message) => {
   message.channel.send(exampleEmbed);
 };
 
+const showCommands = (message, commandsList) => {
+  message.channel.send('```!bot-info ➡️ Shows the bot information```');
+  message.channel.send('```!commands ➡️ Lists commands```');
+  commandsList.forEach((value, command) => {
+    message.channel.send(`\`\`\`!${command} ➡️ ${value.description}\`\`\``);
+  });
+};
+
 // Import modules (functions) from commands folder
 commandFiles.forEach((commandFile) => {
   // eslint-disable-next-line import/no-dynamic-require
@@ -55,7 +63,11 @@ client.on('message', (message) => {
   const commandName = args.shift().toLowerCase();
 
   if (commandName === 'bot-info') {
+    // Show card info
     showEmbed(message);
+  } else if (commandName === 'commands') {
+    // Show available commands
+    showCommands(message, client.commands);
   }
 
   // Find what the command is depending on user input (works with aliases)
