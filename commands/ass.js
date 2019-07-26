@@ -6,7 +6,7 @@ module.exports = {
       return message.channel.send(`Nice ass: @${message.author.username}`);
     }
 
-    const assCompliment = message.mentions.users.map(user => `Nice ass @${user.username}`);
+    const assCompliment = message.mentions.users.map(user => `Nice ass ${user.username}`);
 
     message.channel.send(assCompliment);
   },
