@@ -21,31 +21,6 @@ const { prefix } = config;
 // Cooldowns
 const cooldowns = new Discord.Collection();
 
-const showEmbed = (message) => {
-  const exampleEmbed = new Discord.RichEmbed()
-    .setColor('#fff')
-    .setTitle('Kiwi bot')
-    .setURL('https://discordapp.com/oauth2/authorize?client_id=603952919536074777&scope=bot')
-    .setAuthor('Rayhan A', 'https://rayhanw.com/images/profile.jpg', 'https://rayhanw.com')
-    .setDescription('A simple \'ole bot that does fuck all')
-    .setThumbnail('https://i.imgur.com/BX1HZTr.jpg')
-    .addField('hmm', 'I can do fuck all')
-    .addBlankField()
-    .setImage('https://i.imgur.com/BX1HZTr.jpg')
-    .setTimestamp()
-    .setFooter('I do fuckall', 'https://i.imgur.com/BX1HZTr.jpg');
-
-  message.channel.send(exampleEmbed);
-};
-
-const showCommands = (message, commandsList) => {
-  message.channel.send('```!bot-info ➡️ Shows the bot information```');
-  message.channel.send('```!commands ➡️ Lists commands```');
-  commandsList.forEach((value, command) => {
-    message.channel.send(`\`\`\`!${command} ➡️ ${value.description}\`\`\``);
-  });
-};
-
 // Import modules (functions) from commands folder
 commandFiles.forEach((commandFile) => {
   // eslint-disable-next-line import/no-dynamic-require
@@ -66,14 +41,6 @@ client.on('message', (message) => {
   const args = message.content.slice(prefix.length).split(/ +/);
   // Get the command (after prefix)
   const commandName = args.shift().toLowerCase();
-
-  if (commandName === 'bot-info') {
-    // Show card info
-    showEmbed(message);
-  } else if (commandName === 'commands') {
-    // Show available commands
-    showCommands(message, client.commands);
-  }
 
   // Find what the command is depending on user input (works with aliases)
   // eslint-disable-next-line max-len
