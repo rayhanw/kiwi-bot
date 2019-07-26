@@ -46,6 +46,10 @@ client.on('message', (message) => {
   // eslint-disable-next-line max-len
   const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
+  if (command.name === 'commands') {
+    command.execute(message, client.commands);
+  }
+
   // If command does not exist, don't do anything (return early)
   if (!command) return;
 
