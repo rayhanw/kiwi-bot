@@ -36,7 +36,6 @@ client.once('ready', () => {
 client.on('message', (message) => {
   // If message does not start with prefix '!', don't do anything (return early)
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  console.log(message.author.username);
 
   // Seperate prefix with command
   const args = message.content.slice(prefix.length).split(/ +/);
