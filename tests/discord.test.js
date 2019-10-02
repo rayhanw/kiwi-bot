@@ -7,5 +7,5 @@ const commandFiles = fs
 
 test("there should be 16 files", () => {
 	// Change the argument of toBe the amount of files within the /commands folder
-	expect(discordTest(commandFiles)).toBe(16);
+	expect(discordTest(commandFiles)).toBe(17);
 });

@@ -6,7 +6,8 @@
 	"author": "Rayhan Wirjowerdojo <rayhan.wirjowerdojo@gmail.com>",
 	"license": "MIT",
 	"scripts": {
-		"test": "jest"
+		"test": "jest",
+		"start": "node index.js"
 	},
 	"devDependencies": {
 		"eslint": "^6.1.0",
