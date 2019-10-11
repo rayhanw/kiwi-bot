@@ -13,7 +13,9 @@ module.exports = {
 			.then(data => {
 				data.list.forEach(set => definitions.push(set.definition));
 
-				message.channel.send(`UrbanDictionary's definiton(s) of ${word} are:`);
+				message.channel.send(
+					`UrbanDictionary's definiton(s) of **${word}** are:`
+				);
 
 				for (let i = 0; i <= 2; i += 1) {
 					message.channel.send(`${i + 1}. ${definitions[i]}`);
