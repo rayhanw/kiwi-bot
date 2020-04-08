@@ -9,12 +9,12 @@ module.exports = {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.OWM_API}&units=metric`;
 
     fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
+      .then(response => response.json())
+      .then(data => {
         const { weather, main, name } = data;
         message.channel.send(
           `The weather in ${name} is ${weather[0].main} (${weather[0].description}) and with a temperature of ${main.temp}°C`
         );
       });
-  },
+  }
 };

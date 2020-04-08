@@ -9,9 +9,9 @@ module.exports = {
     const url = `https://api.urbandictionary.com/v0/define?term=${word}`;
 
     fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        const definitions = data.list.map((set) => set.definition);
+      .then(response => response.json())
+      .then(data => {
+        const definitions = data.list.map(set => set.definition);
 
         message.channel.send(
           `UrbanDictionary's definiton(s) of **${word}** are:`
@@ -21,5 +21,5 @@ module.exports = {
           message.channel.send(`${i + 1}. ${definitions[i]}`);
         }
       });
-  },
+  }
 };

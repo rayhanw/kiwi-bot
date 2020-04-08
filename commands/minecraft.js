@@ -1,7 +1,7 @@
 module.exports = {
-  name: 'minecraft',
-  description: 'Shows the minecraft server',
+  name: "minecraft",
+  description: "Shows the minecraft server",
   execute(message) {
-    message.channel.send('IP: `capzailina.aternos.me`');
-  },
+    message.channel.send("IP: `capzailina.aternos.me`");
+  }
 };

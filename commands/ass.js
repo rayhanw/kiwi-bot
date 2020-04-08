@@ -7,9 +7,9 @@ module.exports = {
     }
 
     const assCompliment = message.mentions.users.map(
-      (user) => `Nice ass <@${user.id}>`
+      user => `Nice ass <@${user.id}>`
     );
 
     message.channel.send(assCompliment);
-  },
+  }
 };
