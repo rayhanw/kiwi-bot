@@ -32,7 +32,7 @@ commandFiles.forEach(commandFile => {
 
 client.on("ready", () => {
   console.log("Beep Boop. I am ready!");
-  client.user.setPresence({ game: { name: "!commands", type: "LISTENING" } });
+  client.user.setPresence({ game: { name: "??commands", type: "LISTENING" } });
 });
 
 client.on("message", message => {
@@ -40,7 +40,7 @@ client.on("message", message => {
   if (
     !message.content.startsWith(prefix) ||
     message.author.bot ||
-    !commandsList.includes(message.content.replace("!", ""))
+    !commandsList.includes(message.content.replace("??", ""))
   )
     return;
 
