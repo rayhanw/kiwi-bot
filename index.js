@@ -97,7 +97,7 @@ client.on("message", message => {
     cooldowns.set(command.name, new Discord.Collection());
   }
 
-  const now = Date.now();
+  const now = Date.now(); // Here creates right now
   const timestamps = cooldowns.get(command.name);
   const cooldownAmount = (command.cooldown || 3) * 1000;
 
