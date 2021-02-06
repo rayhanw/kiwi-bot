@@ -58,6 +58,7 @@ client.on("message", message => {
     );
 
   if (command.name === "commands") {
+    console.log(`Running ??${commandName}`);
     command.execute(message, client.commands);
   }
 
@@ -120,6 +121,7 @@ client.on("message", message => {
 
   try {
     // Second try at running command
+    console.log(`Running ??${commandName}`);
     command.execute(message, args);
   } catch (error) {
     // If error, print error message
