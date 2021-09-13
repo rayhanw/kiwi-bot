@@ -2,8 +2,9 @@ module.exports = {
   name: "commands",
   description: "Lists commands",
   execute(message, commandList) {
-    commandList.forEach((value, command) => {
-      message.channel.send(`\`\`\`!${command} ➡️ ${value.description}\`\`\``);
-    });
+    const commands = commandList.map(
+      command => `${command.name} - ${command.description}`
+    );
+    message.channel.send("```\n" + commands.join("\n") + "```");
   }
 };

@@ -10,7 +10,8 @@ require("dotenv").config();
 const client = new Discord.Client({
   intents: [
     Discord.Intents.FLAGS.GUILD_MESSAGES,
-    Discord.Intents.FLAGS.GUILD_VOICE_STATES
+    Discord.Intents.FLAGS.GUILD_VOICE_STATES,
+    Discord.Intents.FLAGS.GUILDS
   ]
 });
 // List of commands (start with empty)
@@ -40,7 +41,7 @@ client.on("ready", () => {
   client.user.setPresence({ game: { name: "??commands", type: "LISTENING" } });
 });
 
-client.on("message", message => {
+client.on("messageCreate", message => {
   // If message does not start with prefix '!', don't do anything (return early)
   if (
     !message.content.startsWith(prefix) ||
