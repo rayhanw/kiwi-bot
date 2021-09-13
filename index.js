@@ -42,13 +42,22 @@ client.on("ready", () => {
 });
 
 client.on("messageCreate", message => {
-  // If message does not start with prefix '!', don't do anything (return early)
-  if (
-    !message.content.startsWith(prefix) ||
-    message.author.bot ||
-    !commandsList.includes(message.content.replace("??", ""))
-  )
-    return;
+  // If message does not start with prefix, don't do anything (return early)
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const messageWithArgs = message.content.split(" ");
+
+  if (messageWithArgs.length >= 2) {
+    const commandName = messageWithArgs[0].replace("??", "");
+
+    if (!commandsList.includes(commandName)) {
+      return;
+    }
+  } else {
+    if (!commandsList.includes(message.content.replace("??", ""))) {
+      return;
+    }
+  }
 
   // Seperate prefix with command
   const args = message.content.slice(prefix.length).split(/ +/);
