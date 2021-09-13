@@ -7,7 +7,12 @@ const config = require("./config.json");
 // Dotenv file link
 require("dotenv").config();
 // Instance of Discord client
-const client = new Discord.Client();
+const client = new Discord.Client({
+  intents: [
+    Discord.Intents.FLAGS.GUILD_MESSAGES,
+    Discord.Intents.FLAGS.GUILD_VOICE_STATES
+  ]
+});
 // List of commands (start with empty)
 client.commands = new Discord.Collection();
 const commandFiles = fs
