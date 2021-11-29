@@ -1,6 +1,8 @@
 const { ROLES, EMOJIS } = require("./constants");
 
 const addRole = (reaction, user) => {
+  console.log("Executing adding role");
+
   if (reaction.emoji.id === EMOJIS.genshin) {
     reaction.message.member.roles.add(ROLES.genshin);
     console.log(`${user.username} was given the Genshin role`);

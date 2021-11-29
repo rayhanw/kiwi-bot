@@ -1,6 +1,8 @@
 const { ROLES, EMOJIS } = require("./constants");
 
 const removeRole = async (reaction, user) => {
+  console.log("Executing removing role");
+
   if (reaction.emoji.id === EMOJIS.genshin) {
     reaction.message.member.roles.remove(ROLES.genshin);
     console.log(`Genshin role was removed from ${user.username}`);

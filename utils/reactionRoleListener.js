@@ -20,8 +20,6 @@ const reactionRoleListener = async (reaction, user, type) => {
     return;
   }
 
-  console.log(reaction.emoji.id);
-
   if (type === "ADD") {
     addRole(reaction, user);
   } else if (type === "REMOVE") {
