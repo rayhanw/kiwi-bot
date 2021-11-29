@@ -4,6 +4,7 @@ const fs = require("fs");
 const Discord = require("discord.js");
 // Bot configurations
 const config = require("./config.json");
+const reactionRoleListener = require("./utils/reactionRoleListener");
 // Dotenv file link
 require("dotenv").config();
 // Instance of Discord client
@@ -11,8 +12,10 @@ const client = new Discord.Client({
   intents: [
     Discord.Intents.FLAGS.GUILD_MESSAGES,
     Discord.Intents.FLAGS.GUILD_VOICE_STATES,
-    Discord.Intents.FLAGS.GUILDS
-  ]
+    Discord.Intents.FLAGS.GUILDS,
+    Discord.Intents.FLAGS.GUILD_MESSAGE_REACTIONS
+  ],
+  partials: ["MESSAGE", "CHANNEL", "REACTION"]
 });
 // List of commands (start with empty)
 client.commands = new Discord.Collection();
@@ -143,6 +146,14 @@ client.on("messageCreate", message => {
     console.error(error);
     message.reply("there was an error trying to execute that command!");
   }
+});
+
+client.on("messageReactionAdd", async (reaction, user) =>
+  reactionRoleListener(reaction, user, "ADD")
+);
+
+client.on("messageReactionRemove", async (reaction, user) => {
+  reactionRoleListener(reaction, user, "REMOVE");
 });
 
 // Supplying Discord bot token
