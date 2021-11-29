@@ -4,9 +4,9 @@ const ROLES = {
   phasmophobia: "914795221106163742"
 };
 const EMOJIS = {
-  genshin: "831635715192258601",
-  ffxiv: "914538926335721512",
-  phasmophobia: "806368415241601044"
+  genshin: "914840130420899860",
+  ffxiv: "914840352270204978",
+  phasmophobia: "914840029367504896"
 };
 
 module.exports = { ROLES, EMOJIS };
