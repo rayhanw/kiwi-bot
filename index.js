@@ -49,9 +49,7 @@ client.on("messageCreate", message => {
   // If message is from a bot, don't do anything
   if (message.author.bot) return;
 
-  if (/fuck you/.test(message.content)) {
-    sodOff(message);
-  }
+  sodOff(message);
 
   // If message does not start with prefix, don't do anything (return early)
   if (!message.content.startsWith(prefix)) return;

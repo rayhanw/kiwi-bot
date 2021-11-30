@@ -1,4 +1,6 @@
 const sodOff = message => {
+  if (!/fuck you/.test(message.content)) return;
+
   const { content } = message;
 
   if (/<@!\d+>/.test(content)) {
