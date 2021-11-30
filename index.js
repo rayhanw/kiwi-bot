@@ -5,6 +5,7 @@ const Discord = require("discord.js");
 // Bot configurations
 const config = require("./config.json");
 const reactionRoleListener = require("./utils/reactionRoleListener");
+const sodOff = require("./utils/sodOff");
 // Dotenv file link
 require("dotenv").config();
 // Instance of Discord client
@@ -45,8 +46,15 @@ client.on("ready", () => {
 });
 
 client.on("messageCreate", message => {
+  // If message is from a bot, don't do anything
+  if (message.author.bot) return;
+
+  if (/fuck you/.test(message.content)) {
+    sodOff(message);
+  }
+
   // If message does not start with prefix, don't do anything (return early)
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
 
   const messageWithArgs = message.content.split(" ");
 
